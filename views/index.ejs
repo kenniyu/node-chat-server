@@ -1,0 +1,40 @@
+<html>
+
+<head>
+	<title>Simple Node.js Chat Example</title>
+	<link rel="stylesheet" href="../stylesheets/style.css" />
+  <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+  <script type="text/javascript" src="/nowjs/now.js"></script>
+
+	<script type="text/javascript">
+	
+		$('#chat-input').live('keypress', function(e) {
+			var message = '';
+			if (e.keyCode == 13) {
+				// call submitChat server function.  This function 
+				// will call everyone's updateChat client function below, 
+				// where userObj is info about this client, and message is, of course, the message entered
+				now.submitChat(message);
+			}
+		});
+		
+		now.updateChat = function(userObj, message) {
+			// code here that updates this client's chat messages div
+			
+		}
+		
+	</script>
+</head>
+
+<body>
+	<div class="container-chat">
+		<div class="chat-wrapper">
+		</div>
+		
+		<div class="input-wrapper">
+			<input type="text" id="chat-input"/>
+		</div>
+	</div>
+</body>
+
+</html>
